@@ -23,7 +23,7 @@
       frameborder="0"
       width="640" 
       height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k1dCChmpBFesFgDw4BK" 
+      data-src="https://www.dailymotion.com/embed/video/k1dCChmpBFesFgDw4BK?autoplay=0" 
       allowfullscreen>
     </iframe>
 
@@ -32,7 +32,7 @@
       frameborder="0"
       width="640" 
       height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k6OqeAatUN6mNADw4Ck" 
+      data-src="https://www.dailymotion.com/embed/video/k6OqeAatUN6mNADw4Ck?autoplay=0" 
       allowfullscreen>
     </iframe>
 
@@ -41,7 +41,7 @@
       frameborder="0"
       width="640" 
       height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k4UbGsiywxj3ecDw4CQ" 
+      data-src="https://www.dailymotion.com/embed/video/k4UbGsiywxj3ecDw4CQ?autoplay=0" 
       allowfullscreen>
     </iframe>
 
@@ -50,7 +50,7 @@
       frameborder="0"
       width="640" 
       height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k3zGu6H0ie2z64DvvHE" 
+      data-src="https://www.dailymotion.com/embed/video/k3zGu6H0ie2z64DvvHE?autoplay=0" 
       allowfullscreen>
     </iframe>
 
@@ -62,13 +62,11 @@
           iframe.src = iframe.dataset.src;
         });
 
-        // Remove event listeners so this only runs once
         window.removeEventListener('scroll', enableVideos);
         window.removeEventListener('click', enableVideos);
         window.removeEventListener('keydown', enableVideos);
       }
 
-      // Load videos after first interaction
       window.addEventListener('scroll', enableVideos);
       window.addEventListener('click', enableVideos);
       window.addEventListener('keydown', enableVideos);
