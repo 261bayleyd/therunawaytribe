@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,39 +18,60 @@
       <h2>Video Created by cousins</h2>
     </div>
 
-    <!-- ✅ Clean, valid embed -->
-    <iframe 
-      frameborder="0"
-      width="640" 
-      height="360" 
-      src="https://www.dailymotion.com/embed/video/k3zGu6H0ie2z64DvvHE" 
-      allowfullscreen>
-    </iframe>
     <h1>Movie</h1>
     <iframe 
       frameborder="0"
       width="640" 
       height="360" 
-      src="https://www.dailymotion.com/embed/video/k1dCChmpBFesFgDw4BK" 
+      data-src="https://www.dailymotion.com/embed/video/k1dCChmpBFesFgDw4BK" 
       allowfullscreen>
     </iframe>
+
     <h1>Trailer v1</h1>
     <iframe 
       frameborder="0"
       width="640" 
       height="360" 
-      src="https://www.dailymotion.com/embed/video/k6OqeAatUN6mNADw4Ck" 
+      data-src="https://www.dailymotion.com/embed/video/k6OqeAatUN6mNADw4Ck" 
       allowfullscreen>
     </iframe>
+
     <h1>Trailer v2</h1>
     <iframe 
       frameborder="0"
       width="640" 
       height="360" 
-      src="https://www.dailymotion.com/embed/video/k4UbGsiywxj3ecDw4CQ" 
+      data-src="https://www.dailymotion.com/embed/video/k4UbGsiywxj3ecDw4CQ" 
       allowfullscreen>
     </iframe>
+
     <h1>Interviews of Cast</h1>
+    <iframe 
+      frameborder="0"
+      width="640" 
+      height="360" 
+      data-src="https://www.dailymotion.com/embed/video/k3zGu6H0ie2z64DvvHE" 
+      allowfullscreen>
+    </iframe>
+
     <script src="script.js"></script>
+    <script>
+      function enableVideos() {
+        const iframes = document.querySelectorAll('iframe[data-src]');
+        iframes.forEach(iframe => {
+          iframe.src = iframe.dataset.src;
+        });
+
+        // Remove event listeners so this only runs once
+        window.removeEventListener('scroll', enableVideos);
+        window.removeEventListener('click', enableVideos);
+        window.removeEventListener('keydown', enableVideos);
+      }
+
+      // Load videos after first interaction
+      window.addEventListener('scroll', enableVideos);
+      window.addEventListener('click', enableVideos);
+      window.addEventListener('keydown', enableVideos);
+    </script>
   </body>
 </html>
