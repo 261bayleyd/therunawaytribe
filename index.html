@@ -1,75 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>The runaway tribe</title>
-    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="text">
-      <h2>D_Viewer</h2>
-      <h3>App created by Bayley Duquette</h3>
-      <h1>THE RUNAWAY TRIBE</h1>
-      <h2>Video Created by cousins</h2>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>The Runaway Tribe</title>
+  <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <h1>Movie</h1>
-    <iframe 
-      frameborder="0"
-      width="640" 
-      height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k1dCChmpBFesFgDw4BK?autoplay=0" 
-      allowfullscreen>
-    </iframe>
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+    }
 
-    <h1>Trailer v1</h1>
-    <iframe 
-      frameborder="0"
-      width="640" 
-      height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k6OqeAatUN6mNADw4Ck?autoplay=0" 
-      allowfullscreen>
-    </iframe>
+    h1, h2, h3 {
+      margin-top: 1.5em;
+    }
 
-    <h1>Trailer v2</h1>
-    <iframe 
-      frameborder="0"
-      width="640" 
-      height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k4UbGsiywxj3ecDw4CQ?autoplay=0" 
-      allowfullscreen>
-    </iframe>
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
 
-    <h1>Interviews of Cast</h1>
-    <iframe 
-      frameborder="0"
-      width="640" 
-      height="360" 
-      data-src="https://www.dailymotion.com/embed/video/k3zGu6H0ie2z64DvvHE?autoplay=0" 
-      allowfullscreen>
-    </iframe>
+    .thumbnail {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
 
-    <script src="script.js"></script>
-    <script>
-      function enableVideos() {
-        const iframes = document.querySelectorAll('iframe[data-src]');
-        iframes.forEach(iframe => {
-          iframe.src = iframe.dataset.src;
-        });
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      padding: 20px 30px;
+      pointer-events: none;
+      transition: background 0.3s;
+    }
 
-        window.removeEventListener('scroll', enableVideos);
-        window.removeEventListener('click', enableVideos);
-        window.removeEventListener('keydown', enableVideos);
-      }
+    .video-container:hover .play-button {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
 
-      window.addEventListener('scroll', enableVideos);
-      window.addEventListener('click', enableVideos);
-      window.addEventListener('keydown', enableVideos);
-    </script>
-  </body>
+<body>
+  <div id="text">
+    <h2>D_Viewer</h2>
+    <h3>App created by Bayley Duquette</h3>
+    <h1>THE RUNAWAY TRIBE</h1>
+    <h2>Video Created by cousins</h2>
+  </div>
+
+  <h1>Movie</h1>
+  <div class="video-container" data-video-id="k1dCChmpBFesFgDw4BK">
+    <img class="thumbnail" src="https://www.dailymotion.com/thumbnail/video/k1dCChmpBFesFgDw4BK" alt="Movie thumbnail">
+    <div class="play-button">&#9658;</div>
+  </div>
+
+  <h1>Trailer v1</h1>
+  <div class="video-container" data-video-id="k6OqeAatUN6mNADw4Ck">
+    <img class="thumbnail" src="https://www.dailymotion.com/thumbnail/video/k6OqeAatUN6mNADw4Ck" alt="Trailer 1 thumbnail">
+    <div class="play-button">&#9658;</div>
+  </div>
+
+  <h1>Trailer v2</h1>
+  <div class="video-container" data-video-id="k4UbGsiywxj3ecDw4CQ">
+    <img class="thumbnail" src="https://www.dailymotion.com/thumbnail/video/k4UbGsiywxj3ecDw4CQ" alt="Trailer 2 thumbnail">
+    <div class="play-button">&#9658;</div>
+  </div>
+
+  <h1>Interviews of Cast</h1>
+  <div class="video-container" data-video-id="k3zGu6H0ie2z64DvvHE">
+    <img class="thumbnail" src="https://www.dailymotion.com/thumbnail/video/k3zGu6H0ie2z64DvvHE" alt="Interview thumbnail">
+    <div class="play-button">&#9658;</div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.video-container').forEach(container => {
+      container.addEventListener('click', () => {
+        const videoId = container.dataset.videoId;
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('width', '640');
+        iframe.setAttribute('height', '360');
+        iframe.setAttribute('src', `https://www.dailymotion.com/embed/video/${videoId}`);
+        container.innerHTML = '';
+        container.appendChild(iframe);
+      });
+    });
+  </script>
+</body>
 </html>
